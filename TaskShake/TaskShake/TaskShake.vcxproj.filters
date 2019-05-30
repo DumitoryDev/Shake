@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="GameObjects">
+      <UniqueIdentifier>{73d0dbc0-b1a9-4267-8cb3-07336ac30d91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Shake">
+      <UniqueIdentifier>{5ecd29b8-9446-4442-80b9-dbec795b5c20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameObjects\Fruit">
+      <UniqueIdentifier>{aaddf565-92dd-48f2-b8cd-9f94bf74ae2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Point">
+      <UniqueIdentifier>{6e3be0af-a359-46b1-bd30-65d2a13eda02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GlobalHeaders">
+      <UniqueIdentifier>{e0ebedfc-1612-40f1-a87d-c3a6bde93a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MapMatrix">
+      <UniqueIdentifier>{1056c90a-9463-464f-8e26-b48223ad3892}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Point\Point.h">
+      <Filter>Point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameObjects\Shake\Shake.h">
+      <Filter>GameObjects\Shake</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameObjects\Fruit\Fruit.h">
+      <Filter>GameObjects\Fruit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\GlobalHeaders\GlobalHeaders.h">
+      <Filter>GlobalHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameObjects\MapMatrix\MapMatrix.h">
+      <Filter>MapMatrix</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskShake.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Point\Point.cpp">
+      <Filter>Point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameObjects\Shake\Shake.cpp">
+      <Filter>GameObjects\Shake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameObjects\Fruit\Fruit.cpp">
+      <Filter>GameObjects\Fruit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameObjects\MapMatrix\MapMatrix.cpp">
+      <Filter>MapMatrix</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
