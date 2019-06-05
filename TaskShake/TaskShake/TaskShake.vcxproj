@@ -84,14 +84,16 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -100,13 +102,15 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>Create</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>pch.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +127,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ShowIncludes>true</ShowIncludes>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -142,7 +149,10 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <ForcedIncludeFiles>stdafx.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <ShowIncludes>true</ShowIncludes>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -152,25 +162,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\Classes\GameObjects\Fruit\Fruit.h" />
-    <ClInclude Include="..\Classes\GameObjects\MapMatrix\MapMatrix.h" />
-    <ClInclude Include="..\Classes\GameObjects\Shake\Shake.h" />
-    <ClInclude Include="..\Classes\Point\Point.h" />
-    <ClInclude Include="..\GlobalHeaders\GlobalHeaders.h" />
-    <ClInclude Include="pch.h" />
+    <ClInclude Include="..\source\abstract_classes\input\input.h" />
+    <ClInclude Include="..\source\abstract_classes\menu\menu.h" />
+    <ClInclude Include="..\source\classes\draw_console\draw_console_windows.h" />
+    <ClInclude Include="..\source\classes\engine\engine.h" />
+    <ClInclude Include="..\source\classes\exceptions\exception.h" />
+    <ClInclude Include="..\source\classes\game\game.h" />
+    <ClInclude Include="..\source\classes\game_object\fruit\fruit.h" />
+    <ClInclude Include="..\source\classes\game_object\map_matrix\map_matrix.h" />
+    <ClInclude Include="..\source\classes\game_object\point\point.h" />
+    <ClInclude Include="..\source\classes\game_object\shake\shake.h" />
+    <ClInclude Include="..\source\classes\input_keyboard\input_keyboard.h" />
+    <ClInclude Include="..\source\classes\menu_console\menu_console.h" />
+    <ClInclude Include="..\source\classes\player\player.h" />
+    <ClInclude Include="..\source\classes\saver_bin\saver_bin.h" />
+    <ClInclude Include="..\source\interfaces\i_draw\i_draw.h" />
+    <ClInclude Include="..\source\interfaces\i_saver\i_saver.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Classes\GameObjects\Fruit\Fruit.cpp" />
-    <ClCompile Include="..\Classes\GameObjects\MapMatrix\MapMatrix.cpp" />
-    <ClCompile Include="..\Classes\GameObjects\Shake\Shake.cpp" />
-    <ClCompile Include="..\Classes\Point\Point.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    <ClCompile Include="..\source\classes\draw_console\draw_console_windows.cpp" />
+    <ClCompile Include="..\source\classes\engine\engine.cpp" />
+    <ClCompile Include="..\source\classes\game_object\fruit\fruit.cpp" />
+    <ClCompile Include="..\source\classes\game_object\map_matrix\map_matrix.cpp" />
+    <ClCompile Include="..\source\classes\game_object\point\point.cpp" />
+    <ClCompile Include="..\source\classes\game_object\shake\shake.cpp" />
+    <ClCompile Include="..\source\classes\input_keyboard\input_keyboard.cpp" />
+    <ClCompile Include="..\source\classes\menu_console\menu_console.cpp" />
+    <ClCompile Include="..\source\classes\saver_bin\saver_bin.cpp" />
+    <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="TaskShake.cpp" />
+    <ClCompile Include="task_shake.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
