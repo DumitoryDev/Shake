@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\source\classes\game_object\snake\snake.cpp">
+      <Filter>classes\game_objects\snake</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\game_object\fruit\fruit.cpp">
+      <Filter>classes\game_objects\fruit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\game_object\map_matrix\map_matrix.cpp">
+      <Filter>classes\game_objects\map_matrix</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\menu_console\menu_console.cpp">
+      <Filter>classes\menu_console</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\saver_bin\saver_bin.cpp">
+      <Filter>classes\saver_bin</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\input_keyboard\input_keyboard.cpp">
+      <Filter>classes\input_keyboard</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\game_object\point\point.cpp">
+      <Filter>classes\point</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\engine\engine.cpp">
+      <Filter>classes\engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\classes\draw_console\draw_console_windows.cpp">
+      <Filter>classes\draw_console_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>global_header</Filter>
+    </ClCompile>
+    <ClCompile Include="task_snake.cpp">
+      <Filter>source_main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\source\interfaces\i_draw\i_draw.h">
+      <Filter>interface\i_draw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\interfaces\i_saver\i_saver.h">
+      <Filter>interface\i_saver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\game_object\snake\snake.h">
+      <Filter>classes\game_objects\snake</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\game_object\fruit\fruit.h">
+      <Filter>classes\game_objects\fruit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\game_object\map_matrix\map_matrix.h">
+      <Filter>classes\game_objects\map_matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\menu_console\menu_console.h">
+      <Filter>classes\menu_console</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\saver_bin\saver_bin.h">
+      <Filter>classes\saver_bin</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\game\game.h">
+      <Filter>classes\game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\input_keyboard\input_keyboard.h">
+      <Filter>classes\input_keyboard</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\game_object\point\point.h">
+      <Filter>classes\point</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\exceptions\exception.h">
+      <Filter>classes\exception</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\player\player.h">
+      <Filter>classes\game_objects\player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\engine\engine.h">
+      <Filter>classes\engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\classes\draw_console\draw_console_windows.h">
+      <Filter>classes\draw_console_windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\abstract_classes\input\input.h">
+      <Filter>abstract_classes\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\abstract_classes\menu\menu.h">
+      <Filter>abstract_classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>global_header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="classes">
+      <UniqueIdentifier>{4a63c2b3-9ae2-41f9-8d95-896340349cc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interface">
+      <UniqueIdentifier>{380e650f-f371-419a-89c5-1fe592181475}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interface\i_saver">
+      <UniqueIdentifier>{90a6c1be-9fea-4274-956d-fb3725e40d72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="interface\i_draw">
+      <UniqueIdentifier>{6fb14d32-75ce-4f08-bb82-35bf1e7d9767}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\game_objects">
+      <UniqueIdentifier>{5dc4ade2-9e84-4dba-8e6d-f82044b50f72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\game_objects\snake">
+      <UniqueIdentifier>{73026cbd-f6bb-4d13-800e-0b8d9d2cfffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\game_objects\fruit">
+      <UniqueIdentifier>{f9f31eff-c429-4a98-b756-22da4693187b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\game_objects\map_matrix">
+      <UniqueIdentifier>{0bd0432e-a536-4bda-902a-2dd0736d776c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\menu_console">
+      <UniqueIdentifier>{14b287af-de04-4c36-b141-f397cce0233b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\saver_bin">
+      <UniqueIdentifier>{f55fe297-c7a4-43de-a18d-bc685b5ca585}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\game">
+      <UniqueIdentifier>{54a5e1e6-5e65-488b-be40-1966725c802c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\input_keyboard">
+      <UniqueIdentifier>{ea0c04d9-cfa5-4d62-b185-d4475ab06ed2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\point">
+      <UniqueIdentifier>{ed2e8492-b73e-4a7d-a746-99e0fb2a41b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\exception">
+      <UniqueIdentifier>{80d0a85d-5b67-42d9-819c-582b30eb2f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\game_objects\player">
+      <UniqueIdentifier>{673b2fe2-8377-4812-a8d2-842e13b1b84b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\engine">
+      <UniqueIdentifier>{172286f1-95ca-4a34-ab09-3b01b72c87b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="classes\draw_console_windows">
+      <UniqueIdentifier>{413cda26-649c-4871-88ab-df3d78bfc1f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="abstract_classes">
+      <UniqueIdentifier>{f6374478-e0bd-49fb-826d-e99dbaba8532}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="abstract_classes\input">
+      <UniqueIdentifier>{90e6a51b-ba55-4eb0-aa1b-0f14cf0ce624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="abstract_classes\menu">
+      <UniqueIdentifier>{b6d464fc-303b-4e1c-ad5a-bec588dcaf0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="global_header">
+      <UniqueIdentifier>{4c8ec255-1179-4eea-a2ca-5cd3318d099f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source_main">
+      <UniqueIdentifier>{a1abe378-9553-4cb3-9d78-8e9d7cde28d0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

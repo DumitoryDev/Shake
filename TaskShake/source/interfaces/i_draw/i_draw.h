@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..//../classes/game_object/shake/shake.h"
+#include "..//../classes/game_object/snake/snake.h"
 #include "..//../classes/game_object/map_matrix/map_matrix.h"
 #include "..//../classes/game_object/fruit/fruit.h"
 
@@ -21,7 +21,7 @@ namespace tg
 
 		virtual ~i_draw(void) = default;
 		virtual void draw_map(const map_matrix & data) = 0;
-		virtual void draw_shake(const shake & data) = 0;
+		virtual void draw_snake(const snake & data) = 0;
 		virtual void draw_fruit(const fruit & data) = 0;
 		virtual void draw_score(std::size_t data) = 0;
 		virtual void draw_info(const std::string & data) = 0;

@@ -68,7 +68,7 @@ namespace tg
 					return  el.name == name;
 				});
 
-				if (res_name != this->settings_->set_players.cend() || res_name->name.empty())
+				if (res_name != this->settings_->set_players.cend() || name.empty())
 				{
 					std::cout << "This name is now exist or name is empty! Pleas, type new name..." << std::endl;
 					continue;
@@ -105,8 +105,11 @@ namespace tg
 		
 		while (true)
 		{
+
+			
 			system("cls");
-			std::cout << "1 - Start new game\n2 - Best players\n3 - Change keys\n4 - Resize playing map\n5 - Edit difficulty\n6 - Save setting\n7 - Show Instruction\n8 - Exit" << std::endl;
+			
+			std::cout << "1 - Start new game\n2 - Best players\n3 - Change keys\n4 - Resize playing map\n5 - Edit difficulty\n6 - Save settings\n7 - Show Instruction\n8 - Exit" << std::endl;
 			std::size_t choice;
 			std::cin >> choice;
 
@@ -118,6 +121,7 @@ namespace tg
 			if (choice > this->map_func_.size() || choice <=0)
 			{
 				std::cout << "Incorrect choice..." << std::endl;
+				std::cout << "Press enter two times..." << std::endl;
 				std::this_thread::sleep_for(std::chrono::milliseconds(this->sz_delay_));
 				continue;
 			}
@@ -128,7 +132,7 @@ namespace tg
 			std::cout << "Press enter..." << std::endl;
 			std::cin.get();
 			clear_cin();
-						
+								
 			
 		}
 
@@ -138,13 +142,12 @@ namespace tg
 	void menu_console::edit_keys() const
 	{
 
-		std::cout << "Type the five keys (UP,DOWN,LEFT,RIGHT,MENU)" << std::endl;
+		std::cout << "Type the five keys (UP,DOWN,LEFT,RIGHT,MENU)\nIf you want to immediately apply the settings, then click save settings in the main menu." << std::endl;
 		char val{};
 		for (auto & key : this->engine_->get_setting().keys)
 		{
 			std::cin >> val;
 		
-
 			auto res_find = std::find_if(this->settings_->keys.cbegin(), this->settings_->keys.cend(), [val](const auto & data)
 			{
 					return data.second == val;

@@ -5,7 +5,7 @@
 #include "../../abstract_classes/input/input.h"
 #include "../game_object/point/point.h"
 #include "../game_object/map_matrix/map_matrix.h"
-#include "../game_object/shake/shake.h"
+#include "../game_object/snake/snake.h"
 #include "../../interfaces/i_saver/i_saver.h"
 
 
@@ -32,7 +32,7 @@ namespace tg
 			shr_input shr_input{};
 			shr_saver shr_saver{};
 
-			std::string str_info_game = "\n\n\nPress CTRL + C to quick exit\nThis is shake game!\nYou need to eat as much fruit!"; //показывается во время игры
+			std::string str_info_game = "\n\n\nPress CTRL + C to quick exit\nThis is snake game!\nYou need to eat as much fruit!"; //показывается во время игры
 			std::string str_win_game = "****************************************** YOU WIN ******************************************"; //показывается после победы
 		
 		};
@@ -56,13 +56,19 @@ namespace tg
 
 		void quick_start_game(void); //автоматический запуск игры
 
-		auto get_draw(void) const noexcept
+		auto get_draw(void) const 
 		{
+			if (!this->configurator_.shr_draw)
+					throw game_error::m_exception("Draw pointer is empty!");
+			
 			return this->configurator_.shr_draw;
 		}
 
-		auto get_input(void) const noexcept
+		auto get_input(void) const 
 		{
+			if (!this->configurator_.shr_input)
+					throw game_error::m_exception("Input pointer is empty!");
+
 			return this->configurator_.shr_input;
 		}
 
@@ -88,31 +94,22 @@ namespace tg
 			return this->setting_game_;
 		} //настройки игры, потом они сохраняются
 
-		auto get_difficulty(void)
+		auto get_difficulty(void) const
 		{
 			return this->sz_difficulty_now_;
 		}
 
-		void default_param(void) noexcept
-		{
-			this->sz_score_ = 0;
-			this->sz_difficulty_now_ = this->setting_game_.sz_difficulty;
-			this->configurator_.shr_input->set_direction(input::direction::none);
-			this->a_dir_ = input::direction::none;
-
-		} // при перезапуске игры можно выставить параметры по умолчанию
+		void default_param(void); // при перезапуске игры можно выставить параметры по умолчанию
 
 
 		void set_count_score(const std::size_t sc)noexcept
 		{
 			if (sc)
-			{
 				this->count_score_ = sc;
-			}
-			
+						
 		}
 
-		void create_shake(void) const;
+		void create_snake(void) const;
 
 		engine(const engine& other) = delete;
 		engine(engine&& other) = delete;
@@ -138,12 +135,11 @@ namespace tg
 		std::atomic<input::direction> a_dir_{ input::direction::none };
 		
 		save::deserialize setting_game_{};
-
-
+		
 		void load_save(void);
 		
-		void first_draw(const shake& shake, map_matrix& map);
-		void chk_shake_dir(const shake& data);
+		void first_draw(const snake& snake, map_matrix& map);
+		void chk_snake_dir(const snake& data);
 		void show_win(void) const;
 		void check_config(void) const
 		{

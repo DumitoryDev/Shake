@@ -1,5 +1,5 @@
 #pragma once
-
+#include"..//..//..//task_snake//stdafx.h"
 
 
 namespace game_error

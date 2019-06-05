@@ -1,5 +1,5 @@
 #pragma once
-#include "..//..//.//..//..//TaskShake/stdafx.h"
+#include "..//..//.//..//..//task_snake//stdafx.h"
 
 
 namespace tg

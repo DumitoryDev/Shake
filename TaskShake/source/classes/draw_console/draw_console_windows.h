@@ -18,7 +18,7 @@ namespace tg
 
 		void draw_map(const map_matrix& data) override;
 
-		void draw_shake(const shake& data) override;
+		void draw_snake(const snake& data) override;
 
 		void draw_fruit(const fruit& data) override;
 

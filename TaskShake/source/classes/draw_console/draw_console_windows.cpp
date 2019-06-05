@@ -11,10 +11,15 @@ namespace  tg
 			throw game_error::m_win_api_exception(L"Error GetStdHandle!", ::GetLastError());
 		}
 
-		if (!::SetConsoleDisplayMode(this->h_std_out_, CONSOLE_FULLSCREEN_MODE, nullptr))
+		if (!::SetConsoleDisplayMode(this->h_std_out_, CONSOLE_FULLSCREEN_MODE, nullptr)) //не работает на некоторых системах
 		{
-			throw game_error::m_win_api_exception(L"Error SetConsoleDisplayMode!", ::GetLastError());
+			if (!::ShowWindow(GetConsoleWindow(), SW_MAXIMIZE))
+			{
+				throw game_error::m_win_api_exception(L"Error SetConsoleDisplayMode or ShowWindow!", ::GetLastError());
+			}
+						
 		}
+			
 		
 		this->hide_cursor();
 	}
@@ -48,12 +53,12 @@ namespace  tg
 		this->sz_height_ = h;
 	}
 
-	void draw_console_windows::draw_shake(const shake& data)
+	void draw_console_windows::draw_snake(const snake& data)
 	{
 		const auto size_body = data.get_count_body();
 		const auto symbol = data.get_symbol(); //символ змеи
 
-		goto_xy(data[shake::head].x, data[shake::head].y);
+		goto_xy(data[snake::head].x, data[snake::head].y);
 		set_color(console_color::light_magenta);
 		std::cout << data.get_symbol(); //сначала рисуем голову змеи одним цветом, а тело другим..
 

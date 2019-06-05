@@ -67,54 +67,54 @@ namespace tg
 
 	void engine::calculation(void)
 	{
-		auto& ref_shake = shake::get_instance();
+		auto& ref_snake = snake::get_instance();
 
 		/*проверка стороны,  в которую мы движемся( если допустим, мы ползем вверх,
 		а потом нажимаем назад + у нас есть хвост, то нужно менять направление*/
-		this->chk_shake_dir(ref_shake); 
+		this->chk_snake_dir(ref_snake); 
 		
-		ref_shake.move(); //добавляем новую голову
+		ref_snake.move(); //добавляем новую голову
 
 		switch (this->a_dir_) //в зависимости от направления меняем координату головы
 		{
 		case input::direction::up:
-			ref_shake[shake::head].y--;
+			ref_snake[snake::head].y--;
 			break;
 
 		case input::direction::left:
-			ref_shake[shake::head].x--;
+			ref_snake[snake::head].x--;
 			break;
 
 		case input::direction::right:
-			ref_shake[shake::head].x++;
+			ref_snake[snake::head].x++;
 			break;
 
 		case input::direction::down:
-			ref_shake[shake::head].y++;
+			ref_snake[snake::head].y++;
 			break;
 
 		default:
 			return;
 		}
 
-		if (ref_shake[shake::head].x == 0 ||
-			ref_shake[shake::head].y == 0 ||
-			ref_shake[shake::head].x == this->sz_wight_ - 1 ||
-			ref_shake[shake::head].y == this->sz_height_ - 1)
+		if (ref_snake[snake::head].x == 0 ||
+			ref_snake[snake::head].y == 0 ||
+			ref_snake[snake::head].x == this->sz_wight_ - 1 ||
+			ref_snake[snake::head].y == this->sz_height_ - 1)
 		{
 			this->is_alive_ = false;
 			return;
 		}  //проверка на стены
 
-		if (ref_shake.check_point(ref_shake[shake::head]))
+		if (ref_snake.check_point(ref_snake[snake::head]))
 		{
 			this->is_alive_ = false;
 			return;
 		} //проверка на хвост
 
-		if (ref_shake[shake::head] == fruit::get_instance().get_point())
+		if (ref_snake[snake::head] == fruit::get_instance().get_point())
 		{
-			ref_shake.push_tail(ref_shake.get_body().back()); 
+			ref_snake.push_tail(ref_snake.get_body().back()); 
 			this->draw_fruit(); //рисуем фрукт заново
 			this->sz_score_ += count_score_;
 			if (this->sz_difficulty_now_ > 30)
@@ -127,7 +127,7 @@ namespace tg
 	void engine::quick_start_game()
 	{
 		this->is_alive_ = true;
-		this->create_shake();
+		this->create_snake();
 
 		if (!this->is_alive_thread_) 
 		{
@@ -144,7 +144,7 @@ namespace tg
 
 	void engine::save(void)
 	{
-		
+		this->check_config();
 		this->configurator_.shr_saver->set_info(this->setting_game_); 
 		this->sz_height_ = this->setting_game_.p_map_size.y;
 		this->sz_wight_ = this->setting_game_.p_map_size.x;
@@ -152,10 +152,19 @@ namespace tg
 		this->configurator_.shr_input->get_keys() = this->setting_game_.keys;
 	}//сохранение во время игры, чтобы можно было сразу поменять некоторые параметры
 
-	void engine::create_shake() const
+	void engine::default_param()
 	{
-		shake::get_instance().clear(); 
-		shake::get_instance().push_tail(point(this->sz_wight_ / 2, this->sz_height_ / 2)); // типа посередине
+		this->check_config();
+		this->sz_score_ = 0;
+		this->sz_difficulty_now_ = this->setting_game_.sz_difficulty;
+		this->configurator_.shr_input->set_direction(input::direction::none);
+		this->a_dir_ = input::direction::none;
+	}
+
+	void engine::create_snake() const
+	{
+		snake::get_instance().clear(); 
+		snake::get_instance().push_tail(point(this->sz_wight_ / 2, this->sz_height_ / 2)); // типа посередине
 		
 	}//при создании змеи, прошлые её настройки стираются
 
@@ -182,7 +191,7 @@ namespace tg
 		while (iteration-->1)
 		{
 			ref_fruit.rand_fruit(this->sz_wight_ - 2, this->sz_height_ - 2, 2, 2);
-			if (!shake::get_instance().check_point(ref_fruit.get_point()))
+			if (!snake::get_instance().check_point(ref_fruit.get_point()))
 			{
 				this->configurator_.shr_draw->draw_fruit(ref_fruit);
 				return;
@@ -206,9 +215,9 @@ namespace tg
 	void engine::draw_process(void)
 	{
 		
-		auto& ref_shake = shake::get_instance();
+		auto& ref_snake = snake::get_instance();
 		auto& map = map_matrix::get_instance();
-		this->first_draw(ref_shake, map); //первый раз рисуем карту и змею, которая не двигается
+		this->first_draw(ref_snake, map); //первый раз рисуем карту и змею, которая не двигается
 		while (this->is_alive_)
 		{
 			std::this_thread::sleep_for(std::chrono::milliseconds(this->sz_difficulty_now_));
@@ -224,11 +233,11 @@ namespace tg
 				break;
 			}
 
-			this->configurator_.shr_draw->draw(ref_shake.get_body().back().x, ref_shake.get_body().back().y, ' '); //удаляем конец хвоста змеи, т.к. она перемещается
+			this->configurator_.shr_draw->draw(ref_snake.get_body().back().x, ref_snake.get_body().back().y, ' '); //удаляем конец хвоста змеи, т.к. она перемещается
 
 			this->calculation(); //изменения и првоерки змеи
 
-			this->configurator_.shr_draw->draw_shake(ref_shake);
+			this->configurator_.shr_draw->draw_snake(ref_snake);
 			this->configurator_.shr_draw->draw_score(this->sz_score_);
 		}
 
@@ -248,18 +257,18 @@ namespace tg
 		}
 	}
 
-	void engine::first_draw(const shake& shake, map_matrix& map)
+	void engine::first_draw(const snake& snake, map_matrix& map)
 	{
 		map.fill(this->sz_wight_, this->sz_height_);
 		this->configurator_.shr_draw->draw_map(map);
-		this->configurator_.shr_draw->draw_shake(shake);
+		this->configurator_.shr_draw->draw_snake(snake);
 		this->configurator_.shr_draw->draw_info(this->configurator_.str_info_game);
 		this->draw_fruit();
 	}
 
 	
 
-	void engine::chk_shake_dir(const shake& data)
+	void engine::chk_snake_dir(const snake& data)
 	{
 		if (data.get_count_body() ^ 1) //если у змеи есть хвост, то проверяем направление, и, если что, меняем его
 		{

@@ -1,0 +1,15 @@
+﻿  task_snake.cpp
+  Примечание: включение файла:  c:\users\dmitry\documents\github\shake\taskshake\task_snake\../source/classes/menu_console/menu_console.h
+  Примечание: включение файла:   c:\users\dmitry\documents\github\shake\taskshake\source\classes\menu_console\../../abstract_classes/menu/menu.h
+  Примечание: включение файла:    c:\users\dmitry\documents\github\shake\taskshake\source\abstract_classes\menu\../../classes/engine/engine.h
+  Примечание: включение файла:     c:\users\dmitry\documents\github\shake\taskshake\source\classes\engine\../../interfaces/i_draw/i_draw.h
+  Примечание: включение файла:      c:\users\dmitry\documents\github\shake\taskshake\source\interfaces\i_draw\..//../classes/game_object/snake/snake.h
+  Примечание: включение файла:       c:\users\dmitry\documents\github\shake\taskshake\source\classes\game_object\snake\../point/point.h
+  Примечание: включение файла:      c:\users\dmitry\documents\github\shake\taskshake\source\interfaces\i_draw\..//../classes/game_object/map_matrix/map_matrix.h
+  Примечание: включение файла:       c:\users\dmitry\documents\github\shake\taskshake\source\classes\game_object\map_matrix\../../exceptions/exception.h
+  Примечание: включение файла:      c:\users\dmitry\documents\github\shake\taskshake\source\interfaces\i_draw\..//../classes/game_object/fruit/fruit.h
+  Примечание: включение файла:     c:\users\dmitry\documents\github\shake\taskshake\source\classes\engine\../../abstract_classes/input/input.h
+  Примечание: включение файла:     c:\users\dmitry\documents\github\shake\taskshake\source\classes\engine\../../interfaces/i_saver/i_saver.h
+  Примечание: включение файла:      c:\users\dmitry\documents\github\shake\taskshake\source\interfaces\i_saver\../../classes/player/player.h
+  Примечание: включение файла:  c:\users\dmitry\documents\github\shake\taskshake\task_snake\../source/classes/game/game.h
+  task_snake.vcxproj -> C:\Users\Dmitry\Documents\GitHub\Shake\TaskShake\Debug\task_snake.exe
